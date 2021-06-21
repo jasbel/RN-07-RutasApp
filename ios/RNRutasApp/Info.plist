@@ -55,5 +55,11 @@
 	<array>
 		<string>Ionicons.ttf</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Necesito saber tu ubicacion para mostrar el mapa</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Necesito saber tu ubicacion para mostrar el mapa</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+  	<string>Necesito saber tu ubicacion para mostrar el mapa</string>
 </dict>
 </plist>

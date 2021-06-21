@@ -1,1 +1,1 @@
-npx pod install <!-- for IOS -->
+npx pod-install <!-- for IOS -->
