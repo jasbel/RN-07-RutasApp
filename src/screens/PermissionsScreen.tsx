@@ -1,44 +1,31 @@
-import React from 'react'
-import { View, Text, StyleSheet, Button, Platform } from 'react-native'
-import { check, PERMISSIONS, PermissionStatus, request } from 'react-native-permissions';
+import React from 'react';
+import {useContext} from 'react';
+import {View, Text, StyleSheet, Button} from 'react-native';
 import stylesApp from '../assets/stylesApp';
+import ButtonBlack from '../components/ButtonBlack';
+import {PermissionsContext} from '../context/PermissionsContext';
 
 const PermissionsScreen = () => {
+  const {permissions, checkLocationPermission, askLocationPermission} =
+    useContext(PermissionsContext);
 
-    const checkLocationPermission = async () => {
+  return (
+    <View style={stylesApp.container}>
+      <Text style={styles.title}>Para usar esta aplicacion es necesario dar acceso a la Geolocalizacion</Text>
 
-        let permissionStatus: PermissionStatus;
-
-        if (Platform.OS === 'ios') {
-            // permissionStatus = await check(PERMISSIONS.IOS.LOCATION_WHEN_IN_USE)
-            permissionStatus = await request(PERMISSIONS.IOS.LOCATION_WHEN_IN_USE)
-        } else {
-            // permissionStatus = await check(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION)
-            permissionStatus = await request(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION)
-        }
-
-        console.log({permissionStatus});
-        
-    }
-
-    return (
-        <View style={stylesApp.container}>
-            <Text>Permission</Text>
-
-            <Button
-                title='permiso'
-                onPress={() => checkLocationPermission()}
-            />
-        </View>
-    )
-}
+      <ButtonBlack title="permiso" onPress={() => askLocationPermission()} />
+      <Text style={{marginTop: 20}}> {JSON.stringify(permissions, null, 3)} </Text>
+    </View>
+  );
+};
 
 export default PermissionsScreen;
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    }
-})
+  title: {
+    fontSize: 18,
+    textAlign: 'center',
+    marginBottom: 20,
+    paddingHorizontal: 20,
+  }
+});
