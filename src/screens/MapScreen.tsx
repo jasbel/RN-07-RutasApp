@@ -1,19 +1,12 @@
 import React from 'react';
-import MapView from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { View, Text } from 'react-native'
+import Map from '../components/Map';
 
 const MapScreen = () => {
     return (
         <View style={{flex: 1}}>
-            <MapView
-                initialRegion={{
-                latitude: 37.78825,
-                longitude: -122.4324,
-                latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421,
-                }}
-                style={{flex: 1}}
-            />
+            <Map/>
         </View>
     )
 }

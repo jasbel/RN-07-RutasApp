@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {View, ActivityIndicator} from 'react-native';
+import { View, Text, ActivityIndicator } from 'react-native';
 
 const LoadingScreen = () => {
   return (
@@ -10,7 +10,7 @@ const LoadingScreen = () => {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
-      <ActivityIndicator />
+      <ActivityIndicator  size="large" color="#00ff00" />
     </View>
   );
 };
